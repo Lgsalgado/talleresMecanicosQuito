@@ -1,0 +1,84 @@
+.page-header {
+    background: #e9bd15;
+  }
+  
+  .page-header-title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 96px;
+    line-height: 112px;
+    text-align: center;
+    color: #000000;
+  }
+  
+  .image-header {
+    width: 355px;
+    height: 455px;
+    left: 1002px;
+    top: 158px;
+  
+    background: #e9bd15;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+  
+  .btn-header {
+    border-radius: 20px;
+    width: 221px;
+  }
+  
+  .card-header {
+    background: #e9bd15;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+  
+  .card-image-header {
+    background: #ffffff;
+    height: 280px;
+    border-radius: 20px;
+  }
+  
+  .text-card-header {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+  }
+  
+  .text-landpage {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+  }
+  
+  .text-download-app {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.1em;
+  
+    color: #000000;
+  }
+  
+  .footer-app-info {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    color: #e5e5e5;
+  }
+  

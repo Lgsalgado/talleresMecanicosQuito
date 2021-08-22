@@ -1,1 +1,79 @@
-<p>register works!</p>
+<!-- Start Navbar -->
+<nav class="navbar navbar-light bg-light justify-content-between px-5">
+  <a class="navbar-brand" href="#">MecaniWeb</a>
+  <button class="btn btn-outline-dark px-5">Iniciar sesión</button>
+</nav>
+<!-- End Navbar -->
+<!-- Start login container -->
+<div class="container-fluid login-container py-5">
+  <div class="container">
+    <div class="row mx-3">
+      <div class="col-7">
+        <h1 class="login-container-title">SERVICIOS MECÁNICOS A UN CLIC</h1>
+        <div class="d-flex justify-content-center">
+          <a routerLink="/login" class="btn btn-dark btn-header"
+            >Iniciar sesión</a
+          >
+        </div>
+      </div>
+      <div class="col-5">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInputName"
+              formControlName="name"
+              placeholder="John Doe"
+            />
+            <label for="floatingInputName">Nombre</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInputLastName"
+              formControlName="last_name"
+              placeholder="John Doe"
+            />
+            <label for="floatingInputLastName">Apellido</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="floatingInputEmail"
+              formControlName="email"
+              placeholder="email@example.com"
+            />
+            <label for="floatingInputEmail">Correo</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="floatingPassword"
+              formControlName="password"
+              placeholder="Contraseña"
+            />
+            <label for="floatingPassword">Contraseña</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              id="floatingPasswordConfirmation"
+              formControlName="password_confirmation"
+              placeholder="Confirmar contraseña"
+            />
+            <label for="floatingPasswordConfirmation">Contraseña</label>
+          </div>
+          <div class="container d-flex justify-content-center mt-5">
+            <button type="submit" class="btn btn-dark">Registrarse</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Start login container -->
