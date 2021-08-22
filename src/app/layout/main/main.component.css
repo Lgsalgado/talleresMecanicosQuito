@@ -19,13 +19,6 @@ mat-drawer-content {
   border-radius: 10px;
   margin: 16px;
   margin-left: 32px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 2rem;
-  color: lightgray;
 }
 
 mat-drawer-container {

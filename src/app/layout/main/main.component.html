@@ -4,5 +4,9 @@
   <mat-drawer mode="side" opened>
     <app-sidenav></app-sidenav>
   </mat-drawer>
-  <mat-drawer-content>Main content</mat-drawer-content>
+  <mat-drawer-content>
+    <div class="p-5 d-flex justify-content-center align-items-center w-100">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
 </mat-drawer-container>

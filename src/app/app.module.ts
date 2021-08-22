@@ -23,6 +23,8 @@ import { MainComponent } from './layout/main/main.component';
 import { AuthInterceptor } from './shared/session/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
+import { AuthGuard } from './shared/session/auth-guard.service';
+import { LoadingComponent } from './layout/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { SidenavComponent } from './layout/sidenav/sidenav.component';
     SolicitudComponent,
     MainComponent,
     SidenavComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { SidenavComponent } from './layout/sidenav/sidenav.component';
       useClass: AuthInterceptor,
       multi: true,
     },
+    AuthGuard,
   ],
   bootstrap: [AppComponent],
 })
