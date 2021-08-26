@@ -2,7 +2,7 @@
   <app-loading></app-loading>
 </div>
 <div class="container" *ngIf="!isLoading">
-  <form>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <p class="card-text">
       Tipo de perfil: <strong>{{ UserProfile?.role }}</strong>
     </p>
@@ -16,7 +16,7 @@
             id="inputName"
             placeholder="Nombre"
             name="name"
-            [(ngModel)]="UserProfile.name"
+            formControlName="name"
           />
         </div>
       </div>
@@ -29,7 +29,7 @@
             id="inputLastName"
             placeholder="Apellido"
             name="last_name"
-            [(ngModel)]="UserProfile.last_name"
+            formControlName="last_name"
           />
         </div>
       </div>
@@ -42,41 +42,20 @@
         id="inputEmail"
         placeholder="email@example.com"
         name="email"
-        [(ngModel)]="UserProfile.email"
+        formControlName="email"
       />
     </div>
     <div class="form-group">
-      <label for="inputAddress2">Address 2</label>
+      <label for="inputPassword">Nueva contraseña</label>
       <input
-        type="text"
+        type="password"
         class="form-control"
-        id="inputAddress2"
-        placeholder="Apartment, studio, or floor"
+        id="inputPassword"
+        placeholder="Nueva contraseña"
+        name="password"
+        formControlName="password"
       />
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity" />
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip" />
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck" />
-        <label class="form-check-label" for="gridCheck"> Check me out </label>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    <button type="submit" class="btn btn-primary mt-2">Guardar</button>
   </form>
 </div>

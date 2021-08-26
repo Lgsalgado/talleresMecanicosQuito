@@ -30,4 +30,9 @@ export class AuthService {
   profileUser(): Observable<any> {
     return this.http.get('http://127.0.0.1:8000/api/auth/user');
   }
+
+  // Update user
+  updateUser(user: User): Observable<any> {
+    return this.http.put('http://127.0.0.1:8000/api/auth/user', user);
+  }
 }

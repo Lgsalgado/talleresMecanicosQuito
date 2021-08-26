@@ -1,3 +1,38 @@
+.navbar{
+  margin: 0 2rem;
+}
+
+.navbar-brand{
+  color: black;
+}
+
+a:hover {
+  color: #efb810;
+}
+
+.signin{
+  margin: 0 2rem;
+}
+
+.btn-dark{
+  border-radius: 4px;
+  width: auto;
+  height: max-content;
+  text-align: center;
+}
+
+.title{
+  padding-top: 40px;
+  text-align: center;
+  color: #1d1d1d;
+  font-size: 5vw;
+}
+
+.subtitle2{
+  text-align: center;
+  font-size: 1.5vw;
+}
+
 .login-container {
   background: #e9bd15;
 }

@@ -1,84 +1,296 @@
-.page-header {
-    background: #e9bd15;
-  }
-  
-  .page-header-title {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 96px;
-    line-height: 112px;
-    text-align: center;
-    color: #000000;
-  }
-  
-  .image-header {
-    width: 355px;
-    height: 455px;
-    left: 1002px;
-    top: 158px;
-  
-    background: #e9bd15;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    border-radius: 20px;
-  }
-  
-  .btn-header {
-    border-radius: 20px;
-    width: 221px;
-  }
-  
-  .card-header {
-    background: #e9bd15;
-    border: 1px solid #ffffff;
-    box-sizing: border-box;
-    border-radius: 20px;
-  }
-  
-  .card-image-header {
-    background: #ffffff;
-    height: 280px;
-    border-radius: 20px;
-  }
-  
-  .text-card-header {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    text-align: center;
-    color: #000000;
-  }
-  
-  .text-landpage {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    color: #000000;
-  }
-  
-  .text-download-app {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    text-align: center;
-    letter-spacing: 0.1em;
-  
-    color: #000000;
-  }
-  
-  .footer-app-info {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    color: #e5e5e5;
-  }
-  
+.navbar{
+  margin: 0 2rem;
+}
+
+.navbar-brand{
+  color: black;
+}
+
+a:hover {
+  color: #efb810;
+}
+
+
+.home{
+  margin: 0px 2rem;
+}
+
+.title{
+  padding-top: 40px;
+  text-align: center;
+  color: #1d1d1d;
+  font-size: 5vw;
+}
+.subtitle{
+  text-align: center;
+  color: #1d1d1d;
+  font-size: 2vw;
+}
+
+.subtitle2{
+  text-align: center;
+  font-size: 1.5vw;
+}
+
+.btn-dark{
+  border-radius: 4px;
+  width: auto;
+  height: max-content;
+  text-align: center;
+}
+
+.img-fluid{
+  width: 100%;
+  height: auto;
+  margin-top: 40px;
+}
+
+.container-fluid h2{
+  color: #646464;
+  text-align: center;
+  font-size: 3vw;
+}
+
+.container-fluid p{
+  color: #646464;
+}
+
+.accordion{
+  width: 100%;
+  padding: 0 5px;
+  border: 2px solid #efb810;
+  cursor: pointer;
+  border-radius: 50px;
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+}
+
+.accordion h5{
+  text-align: center;
+  align-items: center;
+}
+
+.accordion .icon{
+  margin: 0 10px 0 0;
+  width: 30px;
+  height: 30px;
+  background-color:  #ecb81c;
+  border-radius: 50%;
+  transition: all .5s ease-in;
+}
+
+.panel{
+  padding: 0 15px;
+  border-left: 1px solid #e2b11c;
+  margin-left: 25px;
+  text-align: justify;
+  overflow: hidden;
+  transition: all .5s ease-in;
+}
+
+.container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.container .card{
+  position: relative;
+  max-width: 300px;
+  height: 420px;
+  background-color: #efb810;
+  margin: 30px 10px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  transition: 0.3 ease-in-out;
+}
+
+.card:hover{
+  height: 420px;
+}
+
+.img-Box{
+  position: relative;
+  width: 260px;
+  height: 260px;
+  top: -60px;
+  left: 20px;
+  z-index: 1;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2) ;
+}
+
+.img-Box img{
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.content{
+  position: relative;
+  margin-top: -140px;
+  padding: 10px 15px;
+  text-align: center;
+  color: #333333;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.content p{
+  color: #646464;
+}
+
+.card:hover .content{
+  visibility: visible;
+  opacity: 1;
+  margin-top: -40px;
+  transition-delay: 00.3s;
+}
+
+.section4{
+  margin: 0px 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left{
+  margin-top: 20px ;
+  width: 60%;
+  height: 300px;
+  border-radius: 4px;
+  background: url(../../../assets/images/Toyota.jpg) no-repeat center / cover;
+}
+
+.right{
+  width: 40%;
+  min-height: 150px;
+  background-color:whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 4px;
+  color: #646464;
+  margin-left: -100px;
+}
+
+.right p{
+  margin: 20px 0;
+}
+
+.right a{
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  padding: 20px 30px;
+  display: inline-block;
+  letter-spacing: 2px;
+}
+
+.left2{
+  width: 40%;
+  min-height: 150px;
+  background-color:whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 4px;
+  color: #646464;
+  margin-right: -50px;
+}
+
+.left2 p{
+  margin: 20px 0;
+}
+
+.left2 a{
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  padding: 20px 30px;
+  display: inline-block;
+  letter-spacing: 2px;
+}
+
+.right2{
+  margin-top: 20px ;
+  width: 60%;
+  height: 300px;
+  border-radius: 5px;
+  background: url(../../../assets/images/cars.jpg) no-repeat center;
+}
+
+.left3{
+  margin-top: 20px ;
+  margin-bottom: 20px;
+  width: 60%;
+  height: 300px;
+  border-radius: 4px;
+  background: url(../../../assets/images/airbag.jpg) no-repeat center / cover;
+}
+
+footer{
+  text-align: center;
+  padding-top: 20px;
+  color: #646464;
+}
+
+.footer-content{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.footer-content h3{
+  font-size: 2vw;
+  line-height: 3rem;
+  color: #333333;
+}
+
+.socials{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials li{
+  margin: 0 16px;
+}
+
+.socials a{
+  text-decoration: none;
+  color: #000;
+}
+
+.socials a:hover i {
+  color: #e2b11c;
+}
+
+.footer-bottom{
+  background-color: #333333;
+  color: #fff;
+  text-align: center;
+  height: 50px;
+}
+
+.footer-bottom p{
+  padding-top: 15px;
+  word-spacing: 2px;
+}
+
+.footer-bottom span{
+  text-transform: uppercase;
+  opacity: .4;
+}
+
+

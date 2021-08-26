@@ -1,131 +1,144 @@
 <!-- Start Navbar -->
-<nav class="navbar navbar-light bg-light justify-content-between px-5">
-  <a class="navbar-brand" href="#">MecaniWeb</a>
-  <button class="btn btn-outline-dark">Administrador</button>
+<nav class="navbar">
+  <div class="container-fluid">
+    <a routerLink="/home" class="navbar-brand">
+      MecaniApp
+    </a>
+    <a routerLink="/login" class="navbar-brand">
+      <button type="button" class="btn btn-outline-dark">Administrador</button>
+    </a>
+  </div>
 </nav>
 <!-- End Navbar -->
 <!-- Start header home -->
-<div class="container-fluid page-header py-5">
-  <div class="container">
-    <div class="row mx-3">
-      <div class="col-7">
-        <h1 class="page-header-title">SERVICIOS MECÁNICOS A UN CLIC</h1>
-        <div class="d-flex justify-content-center">
-          <a routerLink="/login" class="btn btn-dark btn-header">Unirse</a>
-        </div>
-      </div>
-      <div class="col-5">
-        <div class="image-header mx-2">img</div>
-      </div>
+<section class="home" style="background-color: #efb810;">
+  <div class="row">
+    <div class="col-7">
+      <p class="title">Servicios mecánicos</p>
+        <p class="title">a un clic</p>
+      <br><br>
+      <p class="subtitle">Descarga la aplicación:</p>
+      <br><br>
+      <p class="subtitle2">
+        <button type="button" class="btn-dark" routerLink="admin">Aquí</button>
+      </p>
+    </div>
+    <div class="col-5">
+      <img src="../../../assets/images/Mechanic1.png" class="img-fluid" alt="..." style="width: 100%;">
     </div>
   </div>
-</div>
+</section>
 <!-- End Header Home -->
 <!-- Start Header Content -->
-<div class="container mt-5">
-  <div class="row">
-    <div class="col">
-      <div class="card card-header" style="width: 18rem">
-        <div class="card-image-header">IMG</div>
-        <div class="card-body">
-          <p class="text-card-header">Regístrate</p>
-        </div>
-      </div>
+<br><br>
+<section class="home">
+  <div class="container-fluid">
+    <h2>Acerca de nosotros</h2>
+    <div class="accordion">
+      <div class="icon"></div>
+      <h5>¿Qué es MecaniApp?</h5>
     </div>
-    <div class="col">
-      <div class="card card-header" style="width: 18rem">
-        <div class="card-image-header">IMG</div>
-        <div class="card-body"><p class="text-card-header">Busca</p></div>
-      </div>
+    <div class="panel">
+      <p>MecaniApp es un sistema web y aplicación móvil que reune la información de talleres mecánicos y la pone a disposición
+        de todos los usuarios, garantizando servicios de calidad por parte de todos los talleres registrados.</p>
     </div>
-    <div class="col">
-      <div class="card card-header" style="width: 18rem">
-        <div class="card-image-header">IMG</div>
-        <div class="card-body">
-          <p class="text-card-header">Contrata</p>
-        </div>
-      </div>
+
+    <div class="accordion">
+      <div class="icon"></div>
+      <h5>Misión</h5>
+    </div>
+    <div class="panel">
+      <p>Ofrecer contenido de utilidad para todos los usuarios interesados en contratar servicios mecánicos. A su vez,
+        apoyar con este contenido para que los talleres mecánicos registrados logren impulsar su empresa llegando a más clientes.</p>
+    </div>
+
+    <div class="accordion">
+      <div class="icon"></div>
+      <h5>Visión</h5>
+    </div>
+    <div class="panel">
+      <p>Ser uno de los mejores sistemas web de contratación de servicios mecánicos, reconocida por la innovación y simpleza.</p>
     </div>
   </div>
-</div>
+</section>
 <!--  End Header Content -->
 <!-- Start landpage Content-->
-<div class="container-fluid mt-5">
-  <div class="row px-5 pt-5" style="background: #e9bd15; height: 427px">
-    <div class="col-5">
-      <div>IMG</div>
+<br><br>
+<section class="container" >
+  <div class="card">
+    <div class="img-Box">
+      <img src="../../../assets/images/Mobile-login.jpg">
     </div>
-    <div class="col-7">
-      <p class="text-landpage">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sint
-        expedita ipsum esse, inventore quo sunt neque! Inventore nesciunt
-        facilis eum iure numquam quam odit dolorum tenetur voluptas odio?
-        Sapiente corrupti at earum impedit ratione, non illum explicabo magni,
-        excepturi provident ab officiis exercitationem. Quia sit dicta animi
-        aliquid. Quos?
-      </p>
+    <div class="content">
+      <h2>Regístrate</h2>
+      <p>Crea una cuenta o inicia sesión en nuestra aplicación móvil y conéctate con más de 50 talleres mecánicos registrados</p>
     </div>
   </div>
-</div>
-<div class="container-fluid">
-  <div class="row px-5 pt-5" style="height: 427px">
-    <div class="col-7">
-      <p class="text-landpage">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sint
-        expedita ipsum esse, inventore quo sunt neque! Inventore nesciunt
-        facilis eum iure numquam quam odit dolorum tenetur voluptas odio?
-        Sapiente corrupti at earum impedit ratione, non illum explicabo magni,
-        excepturi provident ab officiis exercitationem. Quia sit dicta animi
-        aliquid. Quos?
-      </p>
+  <div class="card">
+    <div class="img-Box">
+      <img src="../../../assets/images/search.jpg">
     </div>
-    <div class="col-5">
-      <div>IMG</div>
+    <div class="content">
+      <h2>Busca</h2>
+      <p>Busca el servicio que requieras, puedes filtrar tus respuestas según el taller mecánico más cercano</p>
     </div>
   </div>
-</div>
-<div class="container-fluid">
-  <div class="row px-5 pt-5" style="background: #e9bd15; height: 427px">
-    <div class="col-5">
-      <div>IMG</div>
+  <div class="card">
+    <div class="img-Box">
+      <img src="../../../assets/images/hire2.jpg">
     </div>
-    <div class="col-7">
-      <p class="text-landpage">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sint
-        expedita ipsum esse, inventore quo sunt neque! Inventore nesciunt
-        facilis eum iure numquam quam odit dolorum tenetur voluptas odio?
-        Sapiente corrupti at earum impedit ratione, non illum explicabo magni,
-        excepturi provident ab officiis exercitationem. Quia sit dicta animi
-        aliquid. Quos?
-      </p>
+    <div class="content">
+      <h2>Contrata</h2>
+      <p>Contacta al mecánico de tu preferencia y disfruta del servicio</p>
     </div>
   </div>
-</div>
+  <br>
+</section>
+<section class="section4" style="background-color: #efb810;">
+  <div class="left"></div>
+  <div class="right">
+    <div class="right-content">
+      <p><strong>El auto</strong> más vendido del mundo, desde su creación
+        en 1966 hasta la actualidad es el Toyota Corolla, con más de 35 millones de unidades..
+      </p>
+      <a href="#" class="btn-seeMore">Ver más</a>
+    </div>
+  </div>
+</section>
+<section class="section4" style="background-color: #efb810;">
+  <div class="left2">
+    <div class="left-content">
+      <p><strong>En Ecuador</strong> existen 1.965.538 vehículos livianos (SUV y camionetas) y
+        301.806 vehículos comerciales (camiones, autobuses y vans)
+      </p>
+      <a href="#" class="btn-seeMore">Ver más</a>
+    </div>
+  </div>
+  <div class="right2"></div>
+</section>
+<section class="section4" style="background-color: #efb810;">
+  <div class="left3"></div>
+  <div class="right">
+    <div class="right-content">
+      <p><strong> Un airbag</strong> salta a unos 300 km/h y en menos de un segundo cuando es activado. Tarda 20
+        milisegundos en inflarse y está diseñado para funcionar en un impacto de 30 km/h.
+      </p>
+      <a href="#" class="btn-seeMore">Ver más</a>
+    </div>
+  </div>
+</section>
 <!-- End landpage Content -->
-<!-- Stratr Download App -->
-<div class="container download-app d-flex justify-content-center mt-5">
-  <div class="row">
-    <p class="text-download-app">
-      Descarga la aplicación aquí: <i class="fas fa-star"></i>
-    </p>
-  </div>
-</div>
-<!-- End DOwnload App -->
 <!-- Start footer -->
-<div class="container-fluid bg-dark d-flex justify-content-between p-5 mt-5">
-  <div class="footer-app-info">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima error modi
-      in voluptatem consequuntur quis! Rerum ad necessitatibus officia quam,
-      exercitationem laudantium praesentium tenetur, consequatur in quia facilis
-      hic quis.
-    </p>
+<footer>
+  <div class="footer-content" style="margin: 0px 2rem;">
+    <h3>MecaniApp</h3>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta repudiandae velit nam sapiente cum debitis illo sequi ad, natus quibusdam iusto possimus voluptatibus, repellendus eos quod, voluptas non doloremque architecto.</p>
+    <ul class="socials">
+      <li><a href="#"><i class="fa fa-download"></i></a></li>
+    </ul>
   </div>
-  <div class="footer-app-info">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, dolorum.
-    </p>
-    <p>Lorem ipsum dolor sit amet.</p>
+  <div class="footer-bottom" style="margin: 0px 2rem;">
+    <p>Copyright &copy;2021 MecaniApp diseñado por <span>Karla Chinacalle y Gabriel Salgado</span> </p>
   </div>
-</div>
+</footer>
 <!-- End footer -->

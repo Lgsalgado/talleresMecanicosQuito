@@ -1,7 +1,10 @@
 <!-- Start Navbar -->
-<nav class="navbar navbar-light bg-light justify-content-between px-5">
-  <a class="navbar-brand" href="#">MecaniWeb</a>
-  <button class="btn btn-outline-dark px-5">Iniciar sesión</button>
+<nav class="navbar">
+  <div class="container-fluid">
+    <a routerLink="/home" class="navbar-brand">
+      MecaniApp
+    </a>
+  </div>
 </nav>
 <!-- End Navbar -->
 <!-- Start login container -->
@@ -11,7 +14,7 @@
       <div class="col-7">
         <h1 class="login-container-title">SERVICIOS MECÁNICOS A UN CLIC</h1>
         <div class="d-flex justify-content-center">
-          <a routerLink="/login" class="btn btn-dark btn-header"
+          <a routerLink="/login" class="btn btn-outline-dark"
             >Iniciar sesión</a
           >
         </div>
@@ -66,7 +69,7 @@
               formControlName="password_confirmation"
               placeholder="Confirmar contraseña"
             />
-            <label for="floatingPasswordConfirmation">Contraseña</label>
+            <label for="floatingPasswordConfirmation">Confirmar contraseña</label>
           </div>
           <div class="container d-flex justify-content-center mt-5">
             <button type="submit" class="btn btn-dark">Registrarse</button>

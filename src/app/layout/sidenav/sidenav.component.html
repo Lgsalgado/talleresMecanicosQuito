@@ -5,6 +5,26 @@
 
 <mat-divider></mat-divider>
 
+<div *ngIf="role === 'user'">
+  <button mat-button class="menu-button" routerLink="/afiliacion">
+    <mat-icon>inventory_2</mat-icon>
+    <span>Afiliación</span>
+  </button>
+  <button mat-button class="menu-button" routerLink="/misafiliaciones">
+    <mat-icon>3p</mat-icon>
+    <span>Mis afiliaciones</span>
+  </button>
+</div>
+
+<div *ngIf="role === 'admin'">
+  <button mat-button class="menu-button" routerLink="/solicitudes">
+    <mat-icon>inventory_2</mat-icon>
+    <span>Solicitudes</span>
+  </button>
+</div>
+
+<mat-divider></mat-divider>
+
 <button mat-button class="menu-button" (click)="logOut()">
   <mat-icon>logout</mat-icon>
   <span>Cerrar sesión</span>

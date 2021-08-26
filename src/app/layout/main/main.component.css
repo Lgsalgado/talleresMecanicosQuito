@@ -4,7 +4,7 @@ mat-toolbar {
 }
 
 mat-drawer {
-  margin: 10px;
+  margin: 16px;
   width: 200px;
   border-right: none;
   background: #e9bd15;
@@ -15,10 +15,14 @@ mat-drawer {
 }
 
 mat-drawer-content {
+  background: white;
   height: calc(100vh - 98px);
   border-radius: 10px;
   margin: 16px;
   margin-left: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 mat-drawer-container {
