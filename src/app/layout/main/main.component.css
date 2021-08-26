@@ -5,7 +5,7 @@ mat-toolbar {
 
 mat-drawer {
   margin: 16px;
-  width: 200px;
+  width: 250px;
   border-right: none;
   background: #e9bd15;
   color: black;
@@ -20,9 +20,6 @@ mat-drawer-content {
   border-radius: 10px;
   margin: 16px;
   margin-left: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 mat-drawer-container {

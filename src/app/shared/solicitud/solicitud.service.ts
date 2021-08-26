@@ -66,13 +66,31 @@ export class SolicitudService {
     return this.http.put(this.baseUrl + '/approve/' + solicitud, solicitud);
   }
 
-  // Aprovar
+  // Rechazar
   reject(solicitud: any): Observable<any> {
     return this.http.put(this.baseUrl + '/reject/' + solicitud, solicitud);
+  }
+
+  // Completar
+  complete(solicitud: any): Observable<any> {
+    return this.http.put(this.baseUrl + '/complete/' + solicitud, solicitud);
+  }
+
+  // Registros completados
+  completed(): Observable<any> {
+    return this.http.get(this.baseUrl + 's/completed/');
   }
 
   // Obtener por usuario
   userRequest(): Observable<any> {
     return this.http.get('http://127.0.0.1:8000/api/user/request');
+  }
+
+  tallerInfo(taller: any): Observable<any> {
+    return this.http.get('http://127.0.0.1:8000/api/taller/' + taller, taller);
+  }
+
+  tallerUpdate(id: number, taller: any): Observable<any> {
+    return this.http.put('http://127.0.0.1:8000/api/taller/' + id, taller);
   }
 }

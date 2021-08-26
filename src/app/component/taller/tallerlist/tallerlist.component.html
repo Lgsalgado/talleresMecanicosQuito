@@ -4,13 +4,6 @@
     <td mat-cell *matCellDef="let element">{{ element.id }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="user">
-    <th mat-header-cell *matHeaderCellDef class="px-3">Nombre</th>
-    <td mat-cell *matCellDef="let element" class="px-3">
-      {{ element.user.name }} {{ element.user.last_name }}
-    </td>
-  </ng-container>
-
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef class="px-3">
       Nombre de la mecánica
@@ -25,9 +18,11 @@
     </td>
   </ng-container>
 
-  <ng-container matColumnDef="state">
-    <th mat-header-cell *matHeaderCellDef class="px-3">Estado</th>
-    <td mat-cell *matCellDef="let element" class="px-3">{{ element.state }}</td>
+  <ng-container matColumnDef="updated">
+    <th mat-header-cell *matHeaderCellDef class="px-3">Modificado en</th>
+    <td mat-cell *matCellDef="let element" class="px-3">
+      {{ element.updated_at }}
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="actionsColumn">
@@ -35,12 +30,6 @@
     <td mat-cell *matCellDef="let element" class="px-3">
       <button class="btn btn-outline-primary" (click)="view(element)">
         <mat-icon>visibility</mat-icon>
-      </button>
-      <button class="btn btn-outline-success mx-2" (click)="approve(element)">
-        <mat-icon>check_circle</mat-icon>
-      </button>
-      <button class="btn btn-outline-danger" (click)="reject(element)">
-        <mat-icon>cancel</mat-icon>
       </button>
     </td>
   </ng-container>

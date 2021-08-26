@@ -1,9 +1,9 @@
 <div *ngIf="isLoading">
   <app-loading></app-loading>
 </div>
-<div class="container" *ngIf="!isLoading">
+<div class="container-fluid m-3" *ngIf="!isLoading">
   <div class="row">
-    <mat-card>
+    <mat-card class="mb-5">
       <mat-card-header>
         <mat-card-title>Información de usaurio</mat-card-title>
       </mat-card-header>
@@ -26,6 +26,61 @@
         </div>
       </mat-card-content>
     </mat-card>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Información de la solicitud</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <h2>Nombre del taller</h2>
+          <p>{{ solicitud.name }}</p>
+        </div>
+        <div class="row">
+          <h2>Dirección</h2>
+          <p>{{ solicitud.address }}</p>
+        </div>
+        <div class="row">
+          <h2>Teléfono</h2>
+          <p>{{ solicitud.phone }}</p>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h2>Horario de apertura</h2>
+            <p>{{ solicitud.open_hour }}</p>
+          </div>
+          <div class="col">
+            <h2>Horario de cierre</h2>
+            <p>{{ solicitud.close_hour }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <h2>Servicios</h2>
+          <div class="col-md-4" *ngFor="let item of servicios | keyvalue">
+            <p>{{ item.value }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <img mat-card-image src="{{ image }}" alt="Photo of a Shiba Inu" />
+        </div>
+        <div class="row">
+          <button
+            class="btn btn-outline-success mb-2"
+            (click)="approve()"
+            *ngIf="solicitud.state != 'aprobado'"
+          >
+            <mat-icon>check_circle</mat-icon>
+            Aprobar
+          </button>
+          <button
+            class="btn btn-outline-danger"
+            (click)="reject()"
+            *ngIf="solicitud.state != 'rechazado'"
+          >
+            <mat-icon>cancel</mat-icon>
+            Rechazar
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
-  <div class="row">Solicitud info</div>
 </div>

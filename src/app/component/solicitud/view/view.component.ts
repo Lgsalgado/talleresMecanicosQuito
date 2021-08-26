@@ -12,12 +12,13 @@ export class Solicitud {
   name!: string;
   address!: string;
   phone!: string;
-  open_our!: string;
-  close_our!: string;
+  open_hour!: string;
+  close_hour!: string;
   services!: Array<any>;
   facebook!: string;
   instagram!: string;
   certificate!: string;
+  state!: string;
 }
 
 @Component({
@@ -26,8 +27,11 @@ export class Solicitud {
   styleUrls: ['./view.component.css'],
 })
 export class ViewComponent implements OnInit {
+  solicitud!: Solicitud;
   user!: User;
   isLoading: boolean = true;
+  servicios: string[] = [];
+  image!: string;
 
   err = null;
 
@@ -36,14 +40,48 @@ export class ViewComponent implements OnInit {
     public router: Router,
     private activeRoute: ActivatedRoute
   ) {
-    console.log(this.activeRoute.snapshot.params.id);
     this.solicitudService
       .viewRequest(this.activeRoute.snapshot.params.id)
       .subscribe((data) => {
-        this.user = data[0].user;
+        this.user = data.user;
+        this.solicitud = data;
+        this.image = `http://localhost:8000/${data.certificate}`;
+        this.servicios = JSON.parse(data.services);
         this.isLoading = false;
       });
   }
 
   ngOnInit(): void {}
+
+  approve(): void {
+    this.solicitudService
+      .approve(this.activeRoute.snapshot.params.id)
+      .subscribe(
+        (res) => {
+          console.log(res);
+        },
+        (error) => {
+          console.log(error);
+          this.err = error.error;
+        },
+        () => {
+          window.location.reload();
+        }
+      );
+  }
+
+  reject(): void {
+    this.solicitudService.reject(this.activeRoute.snapshot.params.id).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (error) => {
+        console.log(error);
+        this.err = error.error;
+      },
+      () => {
+        window.location.reload();
+      }
+    );
+  }
 }

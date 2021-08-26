@@ -1,0 +1,98 @@
+<div *ngIf="isLoading">
+  <app-loading></app-loading>
+</div>
+
+<div class="container-fluid m-3" *ngIf="!isLoading">
+  <div class="row">
+    <mat-card class="mb-5">
+      <mat-card-header>
+        <mat-card-title>Información del taller</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="mecanicaForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="inputName">Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputName"
+                  placeholder="Nombre"
+                  name="name"
+                  formControlName="name"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="inputAddress">Dirección</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputAddress"
+                  placeholder="Dirección"
+                  name="address"
+                  formControlName="address"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="inputPhone">Teléfono</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputPhone"
+                  placeholder="Teléfono"
+                  name="phone"
+                  formControlName="phone"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="inputOpen">Hora de apertura</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputOpen"
+                  placeholder="Hora de apertura"
+                  name="open_hour"
+                  formControlName="open_hour"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="inputClose">Hora de cierre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputClose"
+                  placeholder="Hora de cierre"
+                  name="close_hour"
+                  formControlName="close_hour"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-outline-success m-3" type="submit">
+                <mat-icon>save</mat-icon>
+                Actualizar
+              </button>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

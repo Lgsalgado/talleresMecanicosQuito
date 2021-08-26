@@ -6,9 +6,9 @@
 <mat-divider></mat-divider>
 
 <div *ngIf="role === 'user'">
-  <button mat-button class="menu-button" routerLink="/afiliacion">
+  <button mat-button class="menu-button mt-5" routerLink="/afiliacion">
     <mat-icon>inventory_2</mat-icon>
-    <span>Afiliación</span>
+    <span>Solicitar afiliación</span>
   </button>
   <button mat-button class="menu-button" routerLink="/misafiliaciones">
     <mat-icon>3p</mat-icon>
@@ -23,7 +23,16 @@
   </button>
 </div>
 
-<mat-divider></mat-divider>
+<mat-divider class="mt-5" *ngIf="approvedMech"></mat-divider>
+
+<div *ngIf="approvedMech" class="mt-5">
+  <button mat-button class="menu-button" routerLink="/taller">
+    <mat-icon>build</mat-icon>
+    <span>Taller mecánico</span>
+  </button>
+</div>
+
+<mat-divider class="mt-5"></mat-divider>
 
 <button mat-button class="menu-button" (click)="logOut()">
   <mat-icon>logout</mat-icon>

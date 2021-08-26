@@ -10,6 +10,8 @@ import { MainComponent } from './layout/main/main.component';
 import { AuthGuard } from './shared/session/auth-guard.service';
 import { UserComponent as SolicitudUserComponent } from './component/solicitud/user/user.component';
 import { ViewComponent as SolicitudViewComponent } from './component/solicitud/view/view.component';
+import { TallerlistComponent } from './component/taller/tallerlist/tallerlist.component';
+import { TallerviewComponent } from './component/taller/tallerview/tallerview.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -40,6 +42,14 @@ const routes: Routes = [
       {
         path: 'misafiliaciones',
         component: SolicitudUserComponent,
+      },
+      {
+        path: 'taller',
+        component: TallerlistComponent,
+      },
+      {
+        path: 'taller/:id',
+        component: TallerviewComponent,
       },
     ],
   },

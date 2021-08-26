@@ -15,7 +15,13 @@ export interface Solicitud {
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'created', 'updated', 'state'];
+  displayedColumns: string[] = [
+    'name',
+    'created',
+    'updated',
+    'state',
+    'actionsColumn',
+  ];
 
   solicitud: Solicitud[] = [];
   dataSource: any;
@@ -32,4 +38,19 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  completeRegister(e: any): void {
+    this.solicitudService.complete(e.id).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (error) => {
+        console.log(error);
+        this.err = error.error;
+      },
+      () => {
+        window.location.reload();
+      }
+    );
+  }
 }

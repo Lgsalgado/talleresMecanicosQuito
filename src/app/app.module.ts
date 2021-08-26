@@ -36,6 +36,8 @@ import { ApprovedComponent } from './component/solicitud/approved/approved.compo
 import { RejectedComponent } from './component/solicitud/rejected/rejected.component';
 import { UserComponent } from './component/solicitud/user/user.component';
 import { ViewComponent } from './component/solicitud/view/view.component';
+import { TallerlistComponent } from './component/taller/tallerlist/tallerlist.component';
+import { TallerviewComponent } from './component/taller/tallerview/tallerview.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { ViewComponent } from './component/solicitud/view/view.component';
     RejectedComponent,
     UserComponent,
     ViewComponent,
+    TallerlistComponent,
+    TallerviewComponent,
   ],
   imports: [
     BrowserModule,
