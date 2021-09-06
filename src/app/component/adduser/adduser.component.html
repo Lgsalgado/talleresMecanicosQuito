@@ -1,14 +1,72 @@
-<div *ngIf="isLoading">
-  <app-loading></app-loading>
-</div>
+
+
 <div *ngIf="!isLoading">
   <div class="container" style="width: 70%">
-    <p class="solicitud-header">Solicitud de afiliación</p>
+    <p class="solicitud-header">Registro Nuevo Usuario</p>
   </div>
-  <div class="container afiliacion-container card" style="width: 70%" *ngIf="dataSource==null || dataSource<1 || dataSource[num].state=='rechazado'">
+  <div class="container afiliacion-container card" style="width: 70%">
     <form [formGroup]="solicitudForm" (ngSubmit)="onSubmit()" novalidate>
       <div class="card-body">
         <mat-stepper>
+          <mat-step label="Usuario" state="phone">
+            <div class="col-12">
+              <form [formGroup]="signupForm" (ngSubmit)="onSubmitU()">
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInputName"
+                    formControlName="name"
+                    placeholder="John Doe"
+                  />
+                  <label for="floatingInputName">Nombre</label>
+                </div>
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInputLastName"
+                    formControlName="last_name"
+                    placeholder="John Doe"
+                  />
+                  <label for="floatingInputLastName">Apellido</label>
+                </div>
+                <div class="form-floating mb-4">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="floatingInputEmail"
+                    formControlName="email"
+                    placeholder="email@example.com"
+                  />
+                  <label for="floatingInputEmail">Correo</label>
+                </div>
+                <div class="form-floating mb-4">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPassword"
+                    formControlName="password"
+                    placeholder="Contraseña"
+                  />
+                  <label for="floatingPassword">Contraseña</label>
+                </div>
+                <div class="form-floating">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPasswordConfirmation"
+                    formControlName="password_confirmation"
+                    placeholder="Confirmar contraseña"
+                  />
+                  <label for="floatingPasswordConfirmation">Confirmar contraseña</label>
+                </div>
+                <div class="container d-flex justify-content-center mt-5">
+                  <button type="submit" mat-button matStepperNext class="btn btn-dark">Registrar Usuario</button>
+                </div>
+              </form>
+            </div>
+          </mat-step>
           <mat-step label="Información básica" state="phone">
             <div class="form-group">
               <label for="inputName">Nombre del taller</label>
@@ -163,7 +221,7 @@
                 (change)="onFileSelect($event)"
               />
               <label class="custom-file-label" for="customFile"
-                >Choose file</label
+              >Choose file</label
               >
             </div>
             <div>

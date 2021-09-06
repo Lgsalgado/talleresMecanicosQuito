@@ -38,6 +38,10 @@ import { UserComponent } from './component/solicitud/user/user.component';
 import { ViewComponent } from './component/solicitud/view/view.component';
 import { TallerlistComponent } from './component/taller/tallerlist/tallerlist.component';
 import { TallerviewComponent } from './component/taller/tallerview/tallerview.component';
+import { PromocionlistComponent } from './component/taller/promocion/promocionlist/promocionlist.component';
+import { PromocionviewComponent } from './component/taller/promocion/promocionview/promocionview.component';
+import { AdduserComponent } from './component/adduser/adduser.component';
+import { ViewmechComponent } from './component/viewmech/viewmech.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,10 @@ import { TallerviewComponent } from './component/taller/tallerview/tallerview.co
     ViewComponent,
     TallerlistComponent,
     TallerviewComponent,
+    PromocionlistComponent,
+    PromocionviewComponent,
+    AdduserComponent,
+    ViewmechComponent,
   ],
   imports: [
     BrowserModule,

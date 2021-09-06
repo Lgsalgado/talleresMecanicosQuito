@@ -40,6 +40,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {}
 
   completeRegister(e: any): void {
+    console.log(e)
     this.solicitudService.complete(e.id).subscribe(
       (res) => {
         console.log(res);

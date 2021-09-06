@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SolicitudService } from 'src/app/shared/solicitud/solicitud.service';
+import { MatDialog } from '@angular/material/dialog';
 
 export class Mecanica {
   name!: string;
@@ -72,5 +73,11 @@ export class TallerviewComponent implements OnInit {
           window.location.reload();
         }
       );
+  }
+
+  openView(): void {
+    this.router.navigate([
+      `taller/${this.activeRoute.snapshot.params.id}/promocion`,
+    ]);
   }
 }

@@ -17,7 +17,7 @@ export class User {
 export class SidenavComponent implements OnInit {
   role!: string;
   approvedMech: boolean = false;
-
+  state: string='';
   constructor(
     private auth: AuthStateService,
     public router: Router,
@@ -37,7 +37,16 @@ export class SidenavComponent implements OnInit {
       () => {
         this.solicitudService.completed().subscribe(
           (data) => {
-            this.approvedMech = true;
+            console.log(data.length)
+            if(data.length>0){
+              console.log(data[length].state)
+              if(data[length].state==="completado"){
+                this.approvedMech = true;
+              }
+            }else {
+              console.log("No hay talleres completados")
+            }
+
           },
           (err) => {
             console.log(err);

@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from "sweetalert2";
 
 // User interface
 export class User {
@@ -53,17 +54,37 @@ export class ProfileComponent implements OnInit {
 
   onSubmit() {
     this.isLoading = true;
-    this.authService.updateUser(this.profileForm.value).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (error) => {
-        console.log(error);
-        this.err = error.error;
-      },
-      () => {
-        window.location.reload();
-      }
-    );
+    Swal.fire({
+      title: 'Esta seguro?',
+      text: "Su información será actualizada",
+      icon: 'success',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // @ts-ignore
+        this.authService.updateUser(this.profileForm.value).subscribe(
+          (res) => {
+            console.log(res);
+            Swal.fire(
+              'Información actualizada',
+              'Esta solicitud fue aceptada',
+              'success'
+            )
+          },
+          (error) => {
+            console.log(error);
+            this.err = error.error;
+          },
+          () => {
+            window.location.reload();
+          }
+        );
+      }else { window.location.reload();}
+
+    })
+
   }
 }

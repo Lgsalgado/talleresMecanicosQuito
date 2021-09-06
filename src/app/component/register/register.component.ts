@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/session/auth.service';
 import { TokenService } from 'src/app/shared/session/token.service';
-
+import Swal from "sweetalert2";
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -31,18 +31,37 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.authService.register(this.signupForm.value).subscribe(
-      (res) => {
-        this.responseHandler(res);
-      },
-      (error) => {
-        this.err = error.error;
-      },
-      () => {
-        this.signupForm.reset();
-        this.router.navigate(['login']);
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: "Su registro será enviado",
+      icon: 'success',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // @ts-ignore
+        this.authService.register(this.signupForm.value).subscribe(
+          (res) => {
+            Swal.fire(
+              'Solicitud aceptada!',
+              'Esta solicitud fue aceptada',
+              'success'
+            )
+            this.responseHandler(res);
+          },
+          (error) => {
+            this.err = error.error;
+          },
+          () => {
+            this.signupForm.reset();
+            this.router.navigate(['login']);
+          }
+        );
       }
-    );
+    })
+
   }
 
   responseHandler(jwt: { access_token: string }) {

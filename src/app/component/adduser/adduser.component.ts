@@ -1,28 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { SolicitudService } from 'src/app/shared/solicitud/solicitud.service';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/session/auth.service';
+import { TokenService } from 'src/app/shared/session/token.service';
 import Swal from "sweetalert2";
 import {Solicitud} from "../solicitud/user/user.component";
-
+import {SolicitudService} from "../../shared/solicitud/solicitud.service";
 @Component({
-  selector: 'app-afiliacion',
-  templateUrl: './afiliacion.component.html',
-  styleUrls: ['./afiliacion.component.css'],
-  providers: [
-    {
-      provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: { showError: true },
-    },
-  ],
+  selector: 'app-adduser',
+  templateUrl: './adduser.component.html',
+  styleUrls: ['./adduser.component.css']
 })
-export class AfiliacionComponent implements OnInit {
+export class AdduserComponent implements OnInit {
   // Declaración de servicios
   serv: Array<any> = [
     {
@@ -52,16 +41,26 @@ export class AfiliacionComponent implements OnInit {
   ];
   solicitudForm: FormGroup;
   num: number=0;
+  userId:number=0;
   isLoading: boolean = false;
   err: any;
   solicitud: Solicitud[] = [];
   dataSource: any;
-
-  // @ts-ignore
+  signupForm: FormGroup;
   constructor(
     public solicitudService: SolicitudService,
-    private fb: FormBuilder
+    public fb: FormBuilder,
+    public router: Router,
+    public authService: AuthService,
+    private token: TokenService
   ) {
+    this.signupForm = this.fb.group({
+      name: [''],
+      last_name: [''],
+      email: [''],
+      password: [''],
+      password_confirmation: [''],
+    });
     this.solicitudService.userRequest().subscribe((data) => {
       data.map((data: any) => {
         this.solicitud.push(data);
@@ -85,8 +84,8 @@ export class AfiliacionComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+  }
   onCheckboxChange(e: any) {
     const services: FormArray = this.solicitudForm.get('services') as FormArray;
 
@@ -118,10 +117,10 @@ export class AfiliacionComponent implements OnInit {
         this.solicitudForm.value.services.push(serv);
       });
     }
-    this.solicitudService.crearSolicitud(this.solicitudForm.value).subscribe(
+    this.solicitudService.crearSolicitudAdmin(this.solicitudForm.value,this.userId).subscribe(
       (res) => {
         Swal.fire({
-          title: 'Solicitud enviada correctamente.',
+          title: 'Taller aprobado',
           width: 600,
           padding: '3em',
           background: '#fff url(/images/trees.png)',
@@ -140,7 +139,43 @@ export class AfiliacionComponent implements OnInit {
       },
       () => {
         window.location.reload();
+        this.signupForm.reset();
       }
     );
+  }
+  onSubmitU() {
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: "Este usuario será registrado",
+      icon: 'success',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // @ts-ignore
+        this.authService.register(this.signupForm.value).subscribe(
+          (res) => {
+            this.userId=res.user.id;
+            console.log(this.userId);
+            Swal.fire(
+              'Usuario Aceptado!',
+              'El usuario fue registrado',
+              'success'
+            )
+          },
+          (error) => {
+            this.err = error.error;
+          },
+          () => {
+            // @ts-ignore
+            this.signupForm.reset();
+            //this.router.navigate(['profile']);
+          }
+        );
+      }
+    })
+
   }
 }

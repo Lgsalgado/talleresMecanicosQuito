@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SolicitudService } from 'src/app/shared/solicitud/solicitud.service';
+import Swal from "sweetalert2";
 
 export interface Solicitud {
   id: number;
@@ -44,33 +45,82 @@ export class PendingComponent implements OnInit {
   ngOnInit(): void {}
 
   approve(e: any): void {
-    this.solicitudService.approve(e.id).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (error) => {
-        console.log(error);
-        this.err = error.error;
-      },
-      () => {
-        window.location.reload();
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: "Su registro será enviado",
+      icon: 'success',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // @ts-ignore
+        this.solicitudService.approve(e.id).subscribe(
+          (res) => {
+            Swal.fire(
+              'Solicitud aceptada!',
+              'Esta solicitud fue aceptada',
+              'success'
+            )
+            console.log(res);
+          },
+          (error) => {
+            console.log(error);
+            this.err = error.error;
+          },
+          () => {
+            window.location.reload();
+          }
+        );
       }
-    );
+    })
+
   }
 
-  reject(e: any): void {
-    this.solicitudService.reject(e.id).subscribe(
-      (res) => {
-        console.log(res);
+  async reject(e: any): Promise<void> {
+    const {value: text} = await Swal.fire({
+      title: 'Estas seguro?',
+      text: "Esta solicitud será rechazada, escriba la razón del rechazo",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Rechazar',
+      input: 'textarea',
+      inputLabel: 'Message',
+      inputPlaceholder: 'Escriba la razón aqui',
+      inputAttributes: {
+        'aria-label': 'Type your message here'
       },
-      (error) => {
-        console.log(error);
-        this.err = error.error;
-      },
-      () => {
-        window.location.reload();
-      }
-    );
+    })
+    if (text) {
+      Swal.fire(text).then((result) => {
+
+        if (result.isConfirmed) {
+          // @ts-ignore
+          // @ts-ignore
+          this.solicitudService.reject(e.id).subscribe(
+            (res) => {
+              Swal.fire(
+                'Solicitud aceptada!',
+                'Esta solicitud fue aceptada',
+                'success'
+              )
+              console.log(res);
+            },
+            (error) => {
+              console.log(error);
+              this.err = error.error;
+            },
+            () => {
+              window.location.reload();
+            }
+          );
+        }
+      })
+    }
+
   }
 
   view(e: any): void {

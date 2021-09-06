@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SolicitudService } from 'src/app/shared/solicitud/solicitud.service';
+import Swal from "sweetalert2";
 
 export class User {
   name!: string;
@@ -54,34 +55,72 @@ export class ViewComponent implements OnInit {
   ngOnInit(): void {}
 
   approve(): void {
-    this.solicitudService
-      .approve(this.activeRoute.snapshot.params.id)
-      .subscribe(
-        (res) => {
-          console.log(res);
-        },
-        (error) => {
-          console.log(error);
-          this.err = error.error;
-        },
-        () => {
-          window.location.reload();
-        }
-      );
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: "Su registro será enviado",
+      icon: 'success',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // @ts-ignore
+        this.solicitudService
+          .approve(this.activeRoute.snapshot.params.id)
+          .subscribe(
+            (res) => {
+              console.log(res);
+            },
+            (error) => {
+              console.log(error);
+              this.err = error.error;
+            },
+            () => {
+              window.location.reload();
+            }
+          );
+      }
+    })
+
   }
 
-  reject(): void {
-    this.solicitudService.reject(this.activeRoute.snapshot.params.id).subscribe(
-      (res) => {
-        console.log(res);
+  async reject(): Promise<void> {
+    const {value: text} = await Swal.fire({
+      title: 'Estas seguro?',
+      text: "Esta solicitud será rechazada, escriba la razón del rechazo",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Rechazar',
+      input: 'textarea',
+      inputLabel: 'Message',
+      inputPlaceholder: 'Escriba la razón aqui',
+      inputAttributes: {
+        'aria-label': 'Type your message here'
       },
-      (error) => {
-        console.log(error);
-        this.err = error.error;
-      },
-      () => {
-        window.location.reload();
-      }
-    );
+    })
+    if (text) {
+      Swal.fire(text).then((result) => {
+
+        if (result.isConfirmed) {
+          // @ts-ignore
+          this.solicitudService.reject(this.activeRoute.snapshot.params.id).subscribe(
+            (res) => {
+              console.log(res);
+            },
+            (error) => {
+              console.log(error);
+              this.err = error.error;
+            },
+            () => {
+              window.location.reload();
+            }
+          );
+        }
+      })
+    }
+
   }
 }

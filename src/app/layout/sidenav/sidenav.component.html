@@ -17,15 +17,22 @@
 </div>
 
 <div *ngIf="role === 'admin'">
-  <button mat-button class="menu-button" routerLink="/solicitudes">
+  <button mat-button class="menu-button mt-5" routerLink="/solicitudes">
     <mat-icon>inventory_2</mat-icon>
     <span>Solicitudes</span>
+  </button>
+  <button mat-button class="menu-button" routerLink="/adduser">
+    <mat-icon>add_box</mat-icon>
+    <span>Registar Usuario/Taller M.</span>
+  </button>
+  <button mat-button class="menu-button" routerLink="/talleres">
+    <mat-icon>playlist_add_check</mat-icon>
+    <span>Talleres</span>
   </button>
 </div>
 
 <mat-divider class="mt-5" *ngIf="approvedMech"></mat-divider>
-
-<div *ngIf="approvedMech" class="mt-5">
+<div *ngIf="approvedMech && role==='user'" class="mt-5">
   <button mat-button class="menu-button" routerLink="/taller">
     <mat-icon>build</mat-icon>
     <span>Taller mecánico</span>

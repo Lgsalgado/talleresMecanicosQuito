@@ -12,6 +12,9 @@ import { UserComponent as SolicitudUserComponent } from './component/solicitud/u
 import { ViewComponent as SolicitudViewComponent } from './component/solicitud/view/view.component';
 import { TallerlistComponent } from './component/taller/tallerlist/tallerlist.component';
 import { TallerviewComponent } from './component/taller/tallerview/tallerview.component';
+import { PromocionviewComponent } from './component/taller/promocion/promocionview/promocionview.component';
+import {AdduserComponent} from "./component/adduser/adduser.component";
+import {ViewmechComponent} from "./component/viewmech/viewmech.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,6 +29,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
+      },
+      {
+        path: 'adduser',
+        component: AdduserComponent,
       },
       {
         path: 'afiliacion',
@@ -48,8 +55,16 @@ const routes: Routes = [
         component: TallerlistComponent,
       },
       {
+        path: 'talleres',
+        component: ViewmechComponent,
+      },
+      {
         path: 'taller/:id',
         component: TallerviewComponent,
+      },
+      {
+        path: 'taller/:taller/promocion',
+        component: PromocionviewComponent,
       },
     ],
   },
