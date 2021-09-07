@@ -55,12 +55,12 @@ export class ViewmechComponent implements OnInit {
   async deleteMech(e: any): Promise<void> {
     const {value: text} = await Swal.fire({
       title: 'Estas seguro?',
-      text: "Este taller sera eliminado de la lista de talleres",
+      text: "Este taller pasará a la lista de inactivos",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#d33',
       cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Eliminas',
+      confirmButtonText: 'Inactivar',
       input: 'textarea',
       inputLabel: 'Message',
       inputPlaceholder: 'Escriba la razón aqui',
@@ -73,11 +73,11 @@ export class ViewmechComponent implements OnInit {
 
         if (result.isConfirmed) {
           // @ts-ignore
-          this.solicitudService.tallerDelete(e.id).subscribe(
+          this.solicitudService.inactive(e.id).subscribe(
             (res) => {
               Swal.fire(
                 'Solicitud aceptada!',
-                'El taller fue eliminado',
+                'El taller esta inactivo',
                 'success'
               )
               console.log(res);

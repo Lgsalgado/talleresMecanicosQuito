@@ -89,6 +89,10 @@ export class SolicitudService {
   rejected(): Observable<any> {
     return this.http.get(this.baseUrl + 's/rejected');
   }
+  // Inactivos
+  inactived(): Observable<any> {
+    return this.http.get(this.baseUrl + 's/inactived');
+  }
 
   // Aprovar
   approve(solicitud: any): Observable<any> {
@@ -98,6 +102,10 @@ export class SolicitudService {
   // Rechazar
   reject(solicitud: any): Observable<any> {
     return this.http.put(this.baseUrl + '/reject/' + solicitud, solicitud);
+  }
+  // Inactivar
+  inactive(solicitud: any): Observable<any> {
+    return this.http.put(this.baseUrl + '/inactive/' + solicitud, solicitud);
   }
 
   // Completar

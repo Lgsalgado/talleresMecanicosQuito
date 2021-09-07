@@ -9,3 +9,14 @@
     margin-right: 8px;
   }
 }
+.sub-menu {
+  /*  not needed styles to reflect it */
+  display: flex;
+  justify-content: flex-start;
+  font-size: 1rem;
+  text-align: right;
+  padding-left: 40px;
+  width: 500px;
+  align-content: flex-end;
+
+}

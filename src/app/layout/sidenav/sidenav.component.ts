@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { AuthStateService } from 'src/app/shared/session/auth-state.service';
 import { AuthService } from 'src/app/shared/session/auth.service';
 import { TokenService } from 'src/app/shared/session/token.service';
 import { SolicitudService } from 'src/app/shared/solicitud/solicitud.service';
+import {FormBuilder} from "@angular/forms";
 
 export class User {
   role!: String;
@@ -23,7 +24,9 @@ export class SidenavComponent implements OnInit {
     public router: Router,
     public token: TokenService,
     public authService: AuthService,
-    public solicitudService: SolicitudService
+    public solicitudService: SolicitudService,
+    private fb: FormBuilder,
+    private activeRoute: ActivatedRoute
   ) {
     this.authService.profileUser().subscribe(
       (data: any) => {
@@ -55,7 +58,11 @@ export class SidenavComponent implements OnInit {
       }
     );
   }
-
+  openView(): void {
+    this.router.navigate([
+      `taller/${this.activeRoute.snapshot.params.id}/promocion`,
+    ]);
+  }
   ngOnInit(): void {}
 
   // Cerrar sesion

@@ -37,11 +37,30 @@
     <mat-icon>build</mat-icon>
     <span>Taller mecánico</span>
   </button>
+  <div class="sub-menu ">
+    <button mat-button (click)="openView()">
+      <i class="fa fa-bell" aria-hidden="true"></i>
+      <span>Notificaciones</span>
+    </button>
+  </div>
+  <div class="sub-menu ">
+    <button mat-button (click)="openView()">
+      <i class="fa fa-tag" aria-hidden="true"></i>
+      <span>Promociones</span>
+    </button>
+  </div>
+  <div class="sub-menu ">
+    <button mat-button (click)="openView()">
+      <i class="fa fa-bullhorn" aria-hidden="true"></i>
+      <span>Quejas</span>
+    </button>
+  </div>
 </div>
 
-<mat-divider class="mt-5"></mat-divider>
 
+<mat-divider class="mt-5"></mat-divider>
 <button mat-button class="menu-button" (click)="logOut()">
   <mat-icon>logout</mat-icon>
   <span>Cerrar sesión</span>
 </button>
+

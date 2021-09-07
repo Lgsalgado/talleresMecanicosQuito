@@ -16,6 +16,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import {MatMenuModule} from "@angular/material/menu";
+import {MatTreeModule} from '@angular/material/tree';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,7 +44,8 @@ import { PromocionlistComponent } from './component/taller/promocion/promocionli
 import { PromocionviewComponent } from './component/taller/promocion/promocionview/promocionview.component';
 import { AdduserComponent } from './component/adduser/adduser.component';
 import { ViewmechComponent } from './component/viewmech/viewmech.component';
-
+import { InactiveComponent } from './component/solicitud/inactive/inactive.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,8 +69,11 @@ import { ViewmechComponent } from './component/viewmech/viewmech.component';
     PromocionviewComponent,
     AdduserComponent,
     ViewmechComponent,
+    InactiveComponent,
   ],
   imports: [
+    MatTreeModule,
+    MatExpansionModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -86,6 +92,8 @@ import { ViewmechComponent } from './component/viewmech/viewmech.component';
     MatTabsModule,
     MatTableModule,
     MatCardModule,
+    MatMenuModule
+
   ],
   providers: [
     {

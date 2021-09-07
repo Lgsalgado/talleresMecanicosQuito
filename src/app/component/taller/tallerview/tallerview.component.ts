@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SolicitudService } from 'src/app/shared/solicitud/solicitud.service';
 import { MatDialog } from '@angular/material/dialog';
+import Swal from "sweetalert2";
 
 export class Mecanica {
   name!: string;
@@ -56,23 +57,37 @@ export class TallerviewComponent implements OnInit {
 
   onSubmit(): void {
     this.isLoading = true;
-    this.solicitudService
-      .tallerUpdate(
-        this.activeRoute.snapshot.params.id,
-        this.mecanicaForm.value
-      )
-      .subscribe(
-        (res) => {
-          console.log(res);
-        },
-        (error) => {
-          console.log(error);
-          this.err = error.error;
-        },
-        () => {
-          window.location.reload();
-        }
-      );
+    Swal.fire({
+      title: 'Esta seguro?',
+      text: "Su información del taller será modificada",
+      icon: 'success',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // @ts-ignore
+        this.solicitudService
+          .tallerUpdate(
+            this.activeRoute.snapshot.params.id,
+            this.mecanicaForm.value
+          )
+          .subscribe(
+            (res) => {
+              console.log(res);
+            },
+            (error) => {
+              console.log(error);
+              this.err = error.error;
+            },
+            () => {
+              window.location.reload();
+            }
+          );
+      }else {this.isLoading = false;}
+    })
+
   }
 
   openView(): void {
