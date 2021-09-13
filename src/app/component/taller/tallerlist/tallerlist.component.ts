@@ -36,6 +36,7 @@ export class TallerlistComponent implements OnInit {
       data.map((data: any) => {
         this.mecanica.push(data);
         this.dataSource = this.mecanica;
+        console.log(this.dataSource[length].id)
       });
     });
   }

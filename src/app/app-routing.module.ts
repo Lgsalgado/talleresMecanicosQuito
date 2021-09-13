@@ -15,6 +15,8 @@ import { TallerviewComponent } from './component/taller/tallerview/tallerview.co
 import { PromocionviewComponent } from './component/taller/promocion/promocionview/promocionview.component';
 import {AdduserComponent} from "./component/adduser/adduser.component";
 import {ViewmechComponent} from "./component/viewmech/viewmech.component";
+import {NotificacionComponent} from "./component/notificacion/notificacion.component";
+import {QuejaComponent} from "./component/queja/queja.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -65,6 +67,15 @@ const routes: Routes = [
       {
         path: 'taller/:taller/promocion',
         component: PromocionviewComponent,
+
+      },
+      {
+        path: 'notificaciones',
+        component: NotificacionComponent,
+      },
+      {
+        path: 'quejas',
+        component: QuejaComponent,
       },
     ],
   },

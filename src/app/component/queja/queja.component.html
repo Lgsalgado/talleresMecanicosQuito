@@ -1,0 +1,23 @@
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">checklist</mat-icon>
+      Pendientes
+    </ng-template>
+    <app-pending-queja></app-pending-queja>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">check_circle</mat-icon>
+      Aprobadas
+    </ng-template>
+    <app-approved-queja></app-approved-queja>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">thumb_down_alt</mat-icon>
+      Rechazadas
+    </ng-template>
+    <app-rejected-queja></app-rejected-queja>
+  </mat-tab>
+</mat-tab-group>

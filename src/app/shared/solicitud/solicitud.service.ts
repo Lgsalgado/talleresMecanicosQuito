@@ -103,7 +103,7 @@ export class SolicitudService {
   reject(solicitud: any): Observable<any> {
     return this.http.put(this.baseUrl + '/reject/' + solicitud, solicitud);
   }
-  // Inactivar
+  // Inactivar promocion
   inactive(solicitud: any): Observable<any> {
     return this.http.put(this.baseUrl + '/inactive/' + solicitud, solicitud);
   }

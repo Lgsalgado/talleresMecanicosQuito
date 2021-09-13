@@ -1,5 +1,12 @@
-<div class="container-fluid m-3">
+<mat-tab-group>
+
+<div class="container-fluid m-lg-5">
   <div class="row">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">create_new_folder</mat-icon>
+        Crear Promoción
+      </ng-template>
     <mat-card class="mb-5">
       <mat-card-header>
         <mat-card-title>Promoción</mat-card-title>
@@ -15,23 +22,62 @@
                   class="form-control"
                   id="inputTitle"
                   placeholder="Titulo"
-                  name="tatle"
+                  name="title"
                   formControlName="title"
                 />
               </div>
+              <div class="form-group">
+                <label for="inputDescription" appearance="fill">Descripción</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputDescription"
+                  placeholder="Ingrese el detalle de la promoción"
+                  name="description"
+                  formControlName="description"
+                />
+              </div>
+              <p>Imagen</p>
+              <div class="custom-file">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  id="customFile"
+                  (change)="onFileSelect($event)"
+                />
+                <label class="custom-file-label" for="customFile"
+                >Choose file</label
+                >
+              </div>
             </div>
+          <br>
           </div>
-
           <div class="row">
             <div class="col">
               <button class="btn btn-outline-success m-3" type="submit">
                 <mat-icon>save</mat-icon>
-                Actualizar
+                Crear
               </button>
             </div>
           </div>
         </form>
       </mat-card-content>
     </mat-card>
+    </mat-tab>
   </div>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">check_circle_outline</mat-icon>
+      Activos
+    </ng-template>
+    <app-proactive></app-proactive>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">lock</mat-icon>
+      Inactivos
+    </ng-template>
+    <app-proinactive></app-proinactive>
+  </mat-tab>
 </div>
+</mat-tab-group>

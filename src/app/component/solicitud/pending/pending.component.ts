@@ -120,7 +120,6 @@ export class PendingComponent implements OnInit {
         }
       })
     }
-
   }
 
   view(e: any): void {

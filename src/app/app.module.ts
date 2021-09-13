@@ -46,6 +46,15 @@ import { AdduserComponent } from './component/adduser/adduser.component';
 import { ViewmechComponent } from './component/viewmech/viewmech.component';
 import { InactiveComponent } from './component/solicitud/inactive/inactive.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { NotificacionComponent } from './component/notificacion/notificacion.component';
+import { QuejaComponent } from './component/queja/queja.component';
+import { ProinactiveComponent } from './component/taller/promocion/proinactive/proinactive.component';
+import { ProactiveComponent } from './component/taller/promocion/proactive/proactive.component';
+import { PendingQuejaComponent } from './component/queja/pending-queja/pending-queja.component';
+import { ApprovedQuejaComponent } from './component/queja/approved-queja/approved-queja.component';
+import { RejectedQuejaComponent } from './component/queja/rejected-queja/rejected-queja.component';
+import { ViewQuejaComponent } from './component/queja/view-queja/view-queja.component';
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +79,15 @@ import {MatExpansionModule} from '@angular/material/expansion';
     AdduserComponent,
     ViewmechComponent,
     InactiveComponent,
+    NotificacionComponent,
+    QuejaComponent,
+    ProinactiveComponent,
+    ProactiveComponent,
+    PendingQuejaComponent,
+    ApprovedQuejaComponent,
+    RejectedQuejaComponent,
+    ViewQuejaComponent,
+
   ],
   imports: [
     MatTreeModule,

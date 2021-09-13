@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/shared/session/auth.service';
 import { TokenService } from 'src/app/shared/session/token.service';
 import { SolicitudService } from 'src/app/shared/solicitud/solicitud.service';
 import {FormBuilder} from "@angular/forms";
+import {Mecanica} from "../../component/taller/tallerlist/tallerlist.component";
 
 export class User {
   role!: String;
@@ -15,10 +16,15 @@ export class User {
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
 })
+
+
 export class SidenavComponent implements OnInit {
   role!: string;
   approvedMech: boolean = false;
   state: string='';
+  mecanica: Mecanica[] = [];
+  dataSource: any;
+
   constructor(
     private auth: AuthStateService,
     public router: Router,
@@ -28,6 +34,14 @@ export class SidenavComponent implements OnInit {
     private fb: FormBuilder,
     private activeRoute: ActivatedRoute
   ) {
+    this.solicitudService.completed().subscribe((data) => {
+      data.map((data: any) => {
+        this.mecanica.push(data);
+        this.dataSource = this.mecanica;
+        console.log(this.dataSource[length].id)
+      });
+    });
+
     this.authService.profileUser().subscribe(
       (data: any) => {
         this.role = data.role;
@@ -40,9 +54,7 @@ export class SidenavComponent implements OnInit {
       () => {
         this.solicitudService.completed().subscribe(
           (data) => {
-            console.log(data.length)
             if(data.length>0){
-              console.log(data[length].state)
               if(data[length].state==="completado"){
                 this.approvedMech = true;
               }
@@ -60,7 +72,17 @@ export class SidenavComponent implements OnInit {
   }
   openView(): void {
     this.router.navigate([
-      `taller/${this.activeRoute.snapshot.params.id}/promocion`,
+      `taller/${this.dataSource[length].id}/promocion`,
+    ]);
+  }
+  openViewN(): void {
+    this.router.navigate([
+      `notificaciones`,
+    ]);
+  }
+  openViewQ(): void {
+    this.router.navigate([
+      `quejas`,
     ]);
   }
   ngOnInit(): void {}
